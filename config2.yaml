@@ -1,0 +1,17 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: configmap2
+data:
+  index.html: |
+    <html>
+    <head>
+    <title>TEST NGINX 2</title>
+    </head>
+    <body>
+    <h1>***ЫЫЫЫЫ ДВАЖДЫ***</h1>
+    </br>
+    <h1>Страница, которая должна работать через SSL</h1>
+    </body>
+    </html>

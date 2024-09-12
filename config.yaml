@@ -1,0 +1,20 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: configmap-1
+data:
+  http-port: "1080"
+  https-port: "10443"
+  index.html: |
+    <html>
+    <head>
+    <title>Тестовая страница nginx через конфигмап</title>
+    </head>
+    <body>
+    <h1>***ЫЫЫЫЫЫЫЫЫ***</h1>
+    </br>
+    <h1>Тестовая страница nginx для домашней работы по конфигмапам</h1>
+    </body>
+    </html>
+

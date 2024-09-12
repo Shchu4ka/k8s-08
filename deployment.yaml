@@ -1,0 +1,40 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment
+  labels:
+    app: deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: deployment
+  template:
+    metadata:
+      labels:
+        app: deployment
+    spec:
+      containers:
+        - name: nginx
+          image: nginx
+          volumeMounts:
+            - name: volume-1
+              mountPath: /usr/share/nginx/html/
+        - name: multitool
+          image: wbitt/network-multitool
+          env:
+            - name: HTTP_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: configmap-1
+                  key: http-port
+            - name: HTTPS_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: configmap-1
+                  key: https-port
+      volumes:
+        - name: volume-1
+          configMap:
+            name: configmap-1
